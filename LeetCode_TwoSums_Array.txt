@@ -1,0 +1,35 @@
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
+        //STEP 1- Scan then array and find if any target anumber is already present in the array
+        
+        // if not then take the first element and minus it with target number ,then find the 
+        //element if present , if not then move to next element
+        int arrLen=nums.Length;
+        int[] ret=new int[2];
+        for(int i=0;i<arrLen;i++)
+        {
+            int RemainingNum=0;
+            if(target==(nums[i]))
+            {
+                ret[i]=i;
+            
+            break;
+            }
+            else
+            {
+                RemainingNum=target-nums[i];
+                for(int j=i+1;j<arrLen;j++)
+                {
+                    if(nums[j]==RemainingNum)
+                    {
+                        ret[0]=i;
+                        ret[1]=j;
+                        break;
+                    }
+                    }
+            }
+        }
+        return ret;
+    }
+    
+}
